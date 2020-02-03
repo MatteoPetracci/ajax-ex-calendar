@@ -22,6 +22,35 @@ $(document).ready(function() {
    var html = template(context);
    $("#calendar").append(html);
   }
+  var url = 'https://flynn.boolean.careers/exercises/api/holidays?year=2018&month=0';
+  $.ajax(
+    {
+       'url': url,
+       'method': 'GET',
+       'success': function(data, state) {
+         console.log(data);
+         var arrayDate = data.response;
+         console.log(arrayDate);
+        for (var i = 0; i < arrayDate.length; i++) {
+          console.log(arrayDate[i]);
+          var holidays = arrayDate[i].date;
+          console.log(holidays);
+          $('li').each(function() {
+            var element = $(this);
+            console.log(this);
+            var attr = element.attr('data')
+            console.log(attr);
+            if (attr == holidays) {
+              element.addClass('red');
+            }
+          });
+        }
+       },
+       'error': function(request, state, error) {
+         console.log('errore' + error);
+       }
+    }
+  )
 });
 
 function zero(num) {
