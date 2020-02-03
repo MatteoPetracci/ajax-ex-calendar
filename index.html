@@ -11,12 +11,13 @@
   <title>Document</title>
 </head>
 <body>
-  <ul id="calendar">
-
+  <div class="box">
+    <ul id="calendar">
+  </div>
   </ul>
   <script id="entry-template" type="text/x-handlebars-template">
     <li class="entry" data ={{dayDate}}><span>{{dayMonth}}</span>
-      <div></div>
+      <div class="holiday">{{holiday}}</div>
     </li>
   </script>
   <script src="js/script.js" charset="utf-8"></script>

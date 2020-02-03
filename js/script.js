@@ -34,6 +34,8 @@ $(document).ready(function() {
         for (var i = 0; i < arrayDate.length; i++) {
           console.log(arrayDate[i]);
           var holidays = arrayDate[i].date;
+          var arrayName = arrayDate[i].name;
+          console.log(arrayName);
           console.log(holidays);
           $('li').each(function() {
             var element = $(this);
@@ -42,6 +44,7 @@ $(document).ready(function() {
             console.log(attr);
             if (attr == holidays) {
               element.addClass('red');
+              element.children('.holiday').append(arrayName);
             }
           });
         }
